@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Atômico - UTC</title>
+    <style>
+        /* Reset básico */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden; /* Evita barras de rolagem */
+        }
+
+        /* Background animado */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(#ffffff, transparent 70%) 1px 1px, #000;
+            background-size: 3px 3px;
+            animation: stars 50s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes stars {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(-100px, -100px);
+            }
+        }
+
+        /* Estilo do conteúdo */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        #hello {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #clock {
+            font-size: 3rem;
+            font-weight: bold;
+            background: #0f3460;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            margin: 50px 0;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="hello">Hello World!</div>
+        <h1>Relógio Atômico</h1>
+        <div id="clock">Carregando...</div>
+        <footer>Desenvolvido com HTML, CSS e JavaScript por Douglas Fiedler</footer>
+    </div>
+    
+    <script>
+        function updateClock() {
+            // Obter a data e hora no fuso horário UTC
+            const now = new Date();
+            const hours = String(now.getUTCHours()).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+            
+            // Atualizar o conteúdo do relógio
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} UTC`;
+        }
+
+        // Atualizar o relógio a cada segundo
+        setInterval(updateClock, 1000);
+
+        // Inicializar o relógio
+        updateClock();
+    </script>
+</body>
+</html>

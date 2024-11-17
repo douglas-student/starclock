@@ -1,0 +1,5 @@
+docker-apache-project/
+├── docker-compose.yml
+├── html/
+│   └── index.html
+└── .gitignore
