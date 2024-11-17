@@ -52,7 +52,7 @@ docker-apache-project/
 - **Relógio Atômico**: Um relógio digital atualizado em tempo real com o horário UTC.
 - **Background Animado**: Fundo com estrelas em movimento, simulando o espaço.
 
-![Demonstração](https://via.placeholder.com/800x400?text=Preview+do+Projeto)
+![Demonstração](preview.png)
 
 ## 📝 Personalização
 
